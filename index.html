@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I Love You</title>
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+/* Stylish Title */
+h1 {
+  font-size: 50px;
+  color: red;
+  margin-top: 80px;
+  font-family: 'Pacifico', cursive;
+}
+
+/* Buttons */
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#yes {
+  background: red;
+  color: white;
+}
+
+#no {
+  background: black;
+  color: white;
+  position: absolute;
+}
+
+/* Shayari */
+#shayari {
+  font-size: 22px;
+  color: red;
+  margin-top: 20px;
+  display: none;
+  font-family: 'Georgia', serif;
+}
+
+/* Floating hearts & roses */
+.floating {
+  position: fixed;
+  bottom: -50px;
+  font-size: 30px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0); opacity:1;}
+  100% {transform: translateY(-120vh); opacity:0;}
+}
+</style>
+
+<!-- Stylish Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<h1>I LOVE YOU</h1>
+
+<button id="yes">I LOVE YOU TOO</button>
+<button id="no">I HATE YOU</button>
+
+<div id="shayari">
+💕 MERE HATHO MEIN HATH RAKHOGI KYA,<br>
+TUM MUJHSE MOHABBAT KAROGI KYA,<br>
+YEH CHAND TAARE FOOL AUR PRINDE TO SAB KHAYALI BAATEIN HAIN,<br>
+TUM MERE BACCHO KI MUMMY BANOGI KYA ❣️
+</div>
+
+<script>
+// YES Button Click
+document.getElementById("yes").onclick = function() {
+  document.getElementById("shayari").style.display = "block";
+};
+
+// NO Button Bhagta Rahega
+document.getElementById("no").onmouseover = function() {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  this.style.left = x + "px";
+  this.style.top = y + "px";
+};
+
+// Floating Hearts & Roses
+setInterval(() => {
+  let float = document.createElement("div");
+  float.className = "floating";
+  float.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
+  float.style.left = Math.random() * 100 + "vw";
+  float.style.animationDuration = (Math.random()*3+5)+"s";
+  document.body.appendChild(float);
+  setTimeout(() => float.remove(), 8000);
+}, 300);
+</script>
+
+</body>
+</html>
